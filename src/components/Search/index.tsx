@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { getFilteredDebts } from '../../api';
 import type { Debt } from '../../types';
 
@@ -8,18 +9,27 @@ interface Props {
 }
 
 const Search = ({ onSearch, onSearchEnd, onSearchStart }: Props) => {
+  const [validationError, setValidationError] = useState('');
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setValidationError('');
     const formData = new FormData(event.currentTarget);
     const query = formData.get('query');
 
     if (!query) return;
 
     onSearchStart();
-    const results = await getFilteredDebts(query.toString());
-
-    onSearch(results);
-    onSearchEnd();
+    try {
+      const results = await getFilteredDebts(query.toString());
+      onSearch(results);
+    } catch (error) {
+      if (error instanceof Error) {
+        setValidationError(error.message);
+      }
+    } finally {
+      onSearchEnd();
+    }
   };
 
   return (
@@ -32,6 +42,7 @@ const Search = ({ onSearch, onSearchEnd, onSearchStart }: Props) => {
         <input type='text' className='search__input' name='query' />
         <button className='search__button'>Szukaj</button>
       </form>
+      <p className='search__error'>{validationError}</p>
     </div>
   );
 };
