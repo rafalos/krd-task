@@ -3,10 +3,11 @@ import { getTopDebts } from './api';
 import Search from './components/Search';
 import Table from './components/Table';
 import type { Debt } from './types';
+import Loader from './components/Loader';
 
 function App() {
   const [debts, setDebts] = useState<Debt[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -28,6 +29,7 @@ function App() {
       </header>
 
       <main>
+        {loading && <Loader />}
         <Table debts={debts} loading={loading} />
       </main>
     </div>
