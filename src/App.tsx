@@ -13,8 +13,8 @@ function App() {
   useEffect(() => {
     setLoading(true);
 
-    getTopDebts().then((res) => {
-      setDebts(res);
+    getTopDebts().then((data) => {
+      setDebts(data);
       setLoading(false);
     });
   }, []);
