@@ -20,7 +20,7 @@ const Table = ({ debts, loading }: Props) => {
 
   const sortedDebts = sortDebts(debts, sortBy, direction);
 
-  const formtDate = (dateString: string) => {
+  const formatDate = (dateString: string) => {
     const date = new Date(dateString);
 
     return dateFormatter.format(date).replace(/\./g, '-');
@@ -69,12 +69,12 @@ const Table = ({ debts, loading }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {sortedDebts.map(({ id, Name, NIP, Value, Date: date }) => (
-            <tr key={id}>
+          {sortedDebts.map(({ Id, Name, NIP, Value, Date: date }) => (
+            <tr key={Id}>
               <td>{Name}</td>
               <td>{NIP}</td>
               <td>{currencyFormatter.format(+Value)}</td>
-              <td>{formtDate(date)}</td>
+              <td>{formatDate(date)}</td>
             </tr>
           ))}
         </tbody>

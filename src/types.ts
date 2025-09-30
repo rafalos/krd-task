@@ -1,9 +1,11 @@
+import type { HEADERS } from "./components/Table";
+
 export interface Debt {
-  id: number;
+  Id: number;
   Name: string;
   NIP: string;
   Date: string;
-  Value: string;
+  Value: number;
   Address: string;
   DocumentType: string;
   Price: number;
@@ -11,3 +13,4 @@ export interface Debt {
 }
 
 export type SortDirection = 'asc' | 'desc';
+export type Header = (typeof HEADERS)[number]

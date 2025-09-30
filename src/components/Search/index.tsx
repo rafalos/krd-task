@@ -38,9 +38,10 @@ const Search = ({ onSearch, onSearchEnd, onSearchStart }: Props) => {
       <form
         className='search__control'
         onSubmit={(event) => handleSubmit(event)}
+        aria-label='search form'
       >
         <input type='text' className='search__input' name='query' />
-        <button className='search__button'>Szukaj</button>
+        <button type='submit' className='search__button'>Szukaj</button>
       </form>
       <p className='search__error'>{validationError}</p>
     </div>

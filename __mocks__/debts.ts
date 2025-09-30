@@ -1,4 +1,6 @@
-export const debts = [
+import type { Debt } from '../src/types';
+
+export const topDebts: Debt[] = [
   {
     Id: 1,
     Number: 'DI/KOSZT/P/138483',
