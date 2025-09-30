@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Debt, SortDirection } from '../../types';
-import { dateFormatter, sortDebts, toggleDirection } from '../../utils';
+import { currencyFormatter, dateFormatter, sortDebts, toggleDirection } from '../../utils';
 
 export const HEADERS = [
   'dłużnik',
@@ -32,11 +32,7 @@ const Table = ({ debts, loading }: Props) => {
         loading ? 'container--suspensed' : ''
       }`}
     >
-      <table
-        style={{
-          width: '100%',
-        }}
-      >
+      <table>
         <thead>
           <tr>
             {HEADERS.map((header) => (
@@ -46,6 +42,8 @@ const Table = ({ debts, loading }: Props) => {
                   if (sortBy === header) {
                     const newDirection = toggleDirection(direction);
                     setDirection(newDirection);
+                  } else {
+                    setDirection('asc');
                   }
                   setSortBy(header);
                 }}
@@ -75,7 +73,7 @@ const Table = ({ debts, loading }: Props) => {
             <tr key={id}>
               <td>{Name}</td>
               <td>{NIP}</td>
-              <td>{Value}</td>
+              <td>{currencyFormatter.format(+Value)}</td>
               <td>{formtDate(date)}</td>
             </tr>
           ))}

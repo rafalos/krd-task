@@ -7,6 +7,11 @@ export const dateFormatter = new Intl.DateTimeFormat('pl-PL', {
   year: 'numeric',
 });
 
+export const currencyFormatter = new Intl.NumberFormat('pl-PL', {
+  style: 'currency',
+  currency: 'PLN'
+})
+
 export const sortDebts = (
   debts: Debt[],
   by: (typeof HEADERS)[number],
