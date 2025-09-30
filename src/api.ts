@@ -1,0 +1,125 @@
+import type { Debt } from "./types";
+
+const ROOT_URL = 'https://rekrutacja-webhosting-it.krd.pl/api/Recruitment/';
+
+export const getTopDebts = async (): Promise<Debt[]> => {
+  // const response = await fetch(`${ROOT_URL}/GetTopDebts`)
+
+  // const data = await response.json()
+
+  // console.log(data)
+
+  return [
+    {
+      Id: 1,
+      Number: 'DI/KOSZT/P/138483',
+      Name: 'Marcin Szymczak (Test)',
+      Value: 10000,
+      NIP: '1112223301',
+      Date: '2017-03-01T00:00:00',
+      DocumentType: 'Faktura VAT',
+      Price: 12300,
+      Address: 'ul. Paderewskiego 13 50-312 Wrocław',
+    },
+    {
+      Id: 2,
+      Number: 'DI/PLUS/P/4493',
+      Name: 'Kazimierz Górski (Test)',
+      Value: 4000,
+      NIP: '1112223302',
+      Date: '2017-03-30T00:00:00',
+      DocumentType: 'Inne',
+      Price: 5883,
+      Address: 'ul. Moniuszki 3/1 50-312 Wrocław',
+    },
+    {
+      Id: 3,
+      Number: 'DI/KOSZT/P/95757',
+      Name: 'Renata Urbańska (Test)',
+      Value: 1000,
+      NIP: '1112223303',
+      Date: '2017-02-03T00:00:00',
+      DocumentType: 'Paragon',
+      Price: 1500,
+      Address: 'ul. Jastrzębia 43 50-312 Wrocław',
+    },
+    {
+      Id: 4,
+      Number: 'DI/MON/P/4773',
+      Name: 'Mieczysław Zając (Test)',
+      Value: 1000,
+      NIP: '1112223304',
+      Date: '2017-06-06T00:00:00',
+      DocumentType: 'Inne',
+      Price: 2000,
+      Address:
+        'Park Rekreacyjno-Wypoczynkowy Czarny Staw Imienia Majora Pilota Czecha Nowackiego 294/41 57-340 Duszniki-Zdrój',
+    },
+    {
+      Id: 5,
+      Number: 'DI/KOSZT/P/39440',
+      Name: 'Marek Wiśniewski (Test)',
+      Value: 2000,
+      NIP: '1112223305',
+      Date: '2017-06-01T00:00:00',
+      DocumentType: 'Faktura VAT',
+      Price: 2500,
+      Address: 'ul. Orna 7 50-312 Wrocław',
+    },
+    {
+      Id: 6,
+      Number: 'DI/MON/P/1139',
+      Name: 'Piotr Szymański (Test)',
+      Value: 30000,
+      NIP: '1112223306',
+      Date: '2017-06-02T00:00:00',
+      DocumentType: 'Faktura VAT',
+      Price: 37192,
+      Address: 'ul. Ładna 3/6 50-312 Wrocław',
+    },
+    {
+      Id: 7,
+      Number: 'DI/KOSZT/P/3911',
+      Name: 'Sebastian Baranowski-Brzęczyszczykiewicz (Test)',
+      Value: 70000,
+      NIP: '1112223307',
+      Date: '2017-06-03T00:00:00',
+      DocumentType: 'Inne',
+      Price: 79966,
+      Address: 'ul. Piękna 1/75 50-312 Wrocław',
+    },
+    {
+      Id: 8,
+      Number: 'DI/PLUS/P/33758',
+      Name: 'Grażyna Mazur (Test)',
+      Value: 2000,
+      NIP: '1112223308',
+      Date: '2017-05-12T00:00:00',
+      DocumentType: 'Inne',
+      Price: 2241,
+      Address: 'ul. Kolejowa 15 50-312 Wrocław',
+    },
+    {
+      Id: 9,
+      Number: 'DI/KOSZT/P/23991',
+      Name: 'Małgorzata Mazurek (Test)',
+      Value: 5000,
+      NIP: '1112223309',
+      Date: '2017-04-22T00:00:00',
+      DocumentType: 'Inne',
+      Price: 5544,
+      Address: 'ul. Dąbrowskiego 33 50-312 Wrocław',
+    },
+    {
+      Id: 10,
+      Number: 'DI/KOSZT/P/94911',
+      Name: 'Edward Szulc (Test)',
+      Value: 10000,
+      NIP: '1112223310',
+      Date: '2017-04-15T00:00:00',
+      DocumentType: 'Faktura VAT',
+      Price: 12300,
+      Address: 'ul. POW 64 50-312 Wrocław',
+    },
+  ];
+};
