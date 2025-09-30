@@ -15,10 +15,7 @@ const Table = () => {
   const [sortBy, setSortBy] = useState<(typeof HEADERS)[number]>('dłużnik');
   const [direction, setDirection] = useState<SortDirection>('asc');
 
-  const sortedDebts =
-    direction === 'asc'
-      ? sortDebts(debts, sortBy)
-      : sortDebts(debts, sortBy).reverse();
+  const sortedDebts = sortDebts(debts, sortBy, direction);
 
   useEffect(() => {
     getTopDebts().then((res) => {
@@ -52,7 +49,18 @@ const Table = () => {
                   setSortBy(header);
                 }}
               >
-                {header.toUpperCase()}
+                {
+                  <span className='header'>
+                    {header.toUpperCase()}{' '}
+                    {header === sortBy && (
+                      <img
+                        src='caret.svg'
+                        alt=''
+                        className={`header__caret ${direction === 'desc' ? 'header__caret--descending' : ''}`}
+                      />
+                    )}
+                  </span>
+                }
               </th>
             ))}
           </tr>

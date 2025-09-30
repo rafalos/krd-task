@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 $blue: #003054;
+$lightgray: #C5C5C5;
+$red: #E40321;
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto';
 }
 
 header {
@@ -31,15 +35,68 @@ header {
   &__heading {
     color: white;
     text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  &__control {
+    display: flex;
+    width: 500px;
+    height: 40px;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    flex: 3;
+    padding-left: 10px;
+  }
+
+  &__button {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: $red;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
   }
 }
 
 
 table {
   width: 100%;
+  border-collapse: collapse;
+
+  .header {
+    display: flex;
+    gap: 4px;
+
+    &__caret {
+      &--descending {
+        transform: rotateX(180deg)
+      }
+    }
+  }
+
+  th,
+  td {
+    padding: 12px 10px;
+    color: $blue;
+  }
+
+  tr {
+    border-bottom: 1px solid $lightgray;
+  }
 
   th {
     text-align: left;
     cursor: pointer;
+    color: $lightgray;
+    font-size: 0.8rem;
   }
 }

@@ -4,7 +4,7 @@ import { HEADERS } from './components/Table';
 export const dateFormatter = new Intl.DateTimeFormat('pl-PL', {
   day: '2-digit',
   month: '2-digit',
-  year: '2-digit',
+  year: 'numeric',
 });
 
 export const sortDebts = (
@@ -12,20 +12,26 @@ export const sortDebts = (
   by: (typeof HEADERS)[number],
   direction: SortDirection
 ): Debt[] => {
-  console.log(by);
+  let sortedDebts: Debt[] = [...debts];
 
   switch (by) {
     case 'dłużnik':
-      return debts.sort((a, b) => a.Name.localeCompare(b.Name));
+      sortedDebts = debts.sort((a, b) => a.Name.localeCompare(b.Name));
+      break;
     case 'nip':
-      return debts.sort((a, b) => +a.NIP - +b.NIP);
+      sortedDebts = debts.sort((a, b) => +a.NIP - +b.NIP);
+      break;
     case 'kwota zadłużenia':
-      return debts.sort((a, b) => +a.Value - +b.Value);
+      sortedDebts = debts.sort((a, b) => +a.Value - +b.Value);
+      break;
     case 'data powstania zobowiązania':
-      return debts.sort((a, b) => a.Date.localeCompare(b.Date));
+      sortedDebts = debts.sort((a, b) => a.Date.localeCompare(b.Date));
+      break;
     default:
       return debts;
   }
+
+  return direction === 'asc' ? sortedDebts : sortedDebts.reverse();
 };
 
 export const toggleDirection = (

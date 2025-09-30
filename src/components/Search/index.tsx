@@ -1,12 +1,10 @@
-import React from 'react';
-
 const Search = () => {
   return (
     <div className='container search'>
       <p className='search__heading'>Podaj NIP lub nazwę dłużnika</p>
-      <div>
-        <input type='text' name='' id='' />
-        <button>Szukaj</button>
+      <div className='search__control'>
+        <input type='text' className='search__input' />
+        <button className='search__button'>Szukaj</button>
       </div>
     </div>
   );
