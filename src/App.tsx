@@ -4,6 +4,7 @@ import Search from './components/Search';
 import Table from './components/Table';
 import type { Debt } from './types';
 import Loader from './components/Loader';
+import NoResults from './components/NoResults';
 
 function App() {
   const [debts, setDebts] = useState<Debt[]>([]);
@@ -30,7 +31,12 @@ function App() {
 
       <main>
         {loading && <Loader />}
-        <Table debts={debts} loading={loading} />
+
+        {!loading && debts.length === 0 ? (
+          <NoResults />
+        ) : (
+          <Table debts={debts} loading={loading} />
+        )}
       </main>
     </div>
   );

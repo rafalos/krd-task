@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 $blue: #003054;
-$lightgray: #C5C5C5;
+$gray: #C5C5C5;
+$lightgray: #eeeeee;
 $red: #E40321;
 
 body {
@@ -39,6 +40,12 @@ header {
 
   &--suspensed {
     filter: blur(5px);
+  }
+
+  &--centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -82,6 +89,11 @@ header {
     font-weight: bold;
     cursor: pointer;
   }
+
+  &__error {
+    height: 10px;
+    color: $red;
+  }
 }
 
 
@@ -107,14 +119,22 @@ table {
   }
 
   tr {
-    border-bottom: 1px solid $lightgray;
+    border-bottom: 1px solid $gray;
   }
 
   th {
     text-align: left;
     cursor: pointer;
-    color: $lightgray;
+    color: $gray;
     font-size: 0.8rem;
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $lightgray;
+      }
+    }
   }
 }
 
