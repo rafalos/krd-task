@@ -11,8 +11,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
     getTopDebts().then((data) => {
       setDebts(data);
       setLoading(false);

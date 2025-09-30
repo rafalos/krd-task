@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import type { Debt, SortDirection } from '../../types';
-import { currencyFormatter, dateFormatter, sortDebts, toggleDirection } from '../../utils';
+import {
+  currencyFormatter,
+  dateFormatter,
+  sortDebts,
+  toggleDirection,
+} from '../../utils';
 
 export const HEADERS = [
   'dłużnik',
@@ -28,7 +33,7 @@ const Table = ({ debts, loading }: Props) => {
 
   return (
     <div
-      className={`results__content container ${
+      className={`container container--scrollable ${
         loading ? 'container--suspensed' : ''
       }`}
     >
@@ -51,17 +56,19 @@ const Table = ({ debts, loading }: Props) => {
                 {
                   <span className='header'>
                     {header.toUpperCase()}{' '}
-                    {header === sortBy && (
-                      <img
-                        src='caret.svg'
-                        alt=''
-                        className={`header__caret ${
-                          direction === 'desc'
-                            ? 'header__caret--descending'
-                            : ''
-                        }`}
-                      />
-                    )}
+                    <span className='header__icon'>
+                      {header === sortBy && (
+                        <img
+                          src='caret.svg'
+                          alt=''
+                          className={`header__caret ${
+                            direction === 'desc'
+                              ? 'header__caret--descending'
+                              : ''
+                          }`}
+                        />
+                      )}
+                    </span>
                   </span>
                 }
               </th>
