@@ -24,6 +24,20 @@ header {
   width: 100%;
   height: 100%;
   max-width: 1440px;
+
+  &--suspensed {
+    filter: blur(5px);
+  }
+}
+
+.results {
+  position: relative;
+
+  &__loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
 }
 
 .search {
@@ -38,6 +52,7 @@ header {
     font-size: 0.8rem;
     font-weight: bold;
   }
+
   &__control {
     display: flex;
     width: 500px;
@@ -98,5 +113,41 @@ table {
     cursor: pointer;
     color: $lightgray;
     font-size: 0.8rem;
+  }
+}
+
+.loader {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  &__dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: $blue;
+    animation: pulse 1s linear infinite;
+
+    &:nth-of-type(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
